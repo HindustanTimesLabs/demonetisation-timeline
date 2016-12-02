@@ -1,0 +1,434 @@
+$font: 'PT Serif', serif;
+$block: 'Open Sans', sans-serif;
+$back: #fcfcfc;
+$text: #3a3a3a;
+$nav: #262626;
+$caption: #919194;
+$primary: #48a2d7;
+$sec1: #2880b9;
+$sec2: #e74c3c;
+$link: #008080;
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0
+}
+
+a{
+    color: inherit;
+}
+
+body{ 
+    font-family: $font;
+    background-color: $back;
+    color: $text;
+    position: relative;
+}
+.lead-img-desktop{
+    width: 100%;
+    height: 750px;
+    display: block;
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.7);
+    @media(max-width: 1000px){
+        height: 700px;
+    }
+    @media(max-width: 800px){
+        height: 650px;
+    }
+
+}
+
+.photo-container{
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4em;
+    img{
+        width: 100%;
+    }
+}
+
+.photo-caption{
+    color: $caption;
+    font-size: 0.8em;
+    text-align: right;
+    padding: 0.4em 0.8em;
+    font-family: $block;
+    font-weight: bold;
+    max-width: 1200px;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.photo-caption.story-caption{  
+    text-align: left;  
+}
+
+.normal-line{
+    stroke: #B51514;
+    stroke-width: 0.5px;
+}
+
+.copy{
+    width: 91%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.25em;
+    line-height: 1.5em;
+    color: $text;
+}
+
+.copy-container{
+    padding-top: 3em;
+    p{
+        margin-bottom: 1.5em;
+    }
+    @media(max-width:1300px){
+        padding-top: 0.5em;
+    }
+} 
+
+.blockquote .quote{
+    font-size: 2.5em;
+    color: $primary;
+    font-family: $font;
+    display: inline-block;
+    margin-bottom: 0;
+    width: 50px;
+}
+
+.blockquote p{
+    width: 75%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.story{
+    padding-top: 40px;
+    .headline-container{
+        text-align: center;
+    }
+    .headline{
+        padding-top: 0.7em;
+        font-size: 2.8em;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+        padding-bottom: 0.7em;
+        @media(max-width: 600px){
+            font-size: 2.1em;
+            margin-right: 20px;
+        }
+    }
+}
+
+.blockquote{
+  font-weight: 700;
+  font-family: $block;
+  font-size: 1.3em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+h3.byline{
+    font-weight: 500;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
+
+.byline{
+    .line{
+        width: 220px;
+        margin: 1em auto;
+        border: 2px solid $primary;
+    }
+}
+
+h3.byline.dateline{
+     font-size: 1.1em;
+}
+
+.nav {
+    color: white;
+    height: 40px;
+    background-color: $nav;
+    width: 100%;
+    padding: 0.2em;
+    a{
+        color: inherit;
+    }
+    .nav-logo {
+        padding-left: .3em;
+        vertical-align: middle;
+        height: 60%;
+        margin-top: 4px;
+    }
+    .nav-logo.mobile {
+        display: none;
+    }
+    .nav-logo.desktop {
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .right-container {
+        position: absolute;
+        right: 28px;
+        top: 4px;
+        font-size: 1.4em;
+        i{
+            margin-left: 8px;
+        }
+        @media(max-width: 750px){
+            right: 14px;
+        }
+    }
+    @media(max-width: 750px){
+        .nav-logo.mobile {
+            display: inline-block;
+        }
+        .nav-logo.desktop {
+            display: none;
+        }
+    }
+}
+
+section{
+    h2{
+        padding-bottom: 0.5em;
+        border-bottom: solid 4px $primary;
+        margin-bottom: 0.5em;
+        font-size: 1.7em;
+        line-height: 1.4em;
+    }
+}
+
+.credits{
+    text-align: center;
+    margin-bottom: 2em;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.related-stories.copy{
+
+    padding-top: 30px;
+    max-width: 1300px;
+    border-top: 1px solid #ddd;
+    h2{
+    border-bottom: none;
+    font-size: 1.4em;
+
+    }
+    .series {
+        text-transform: uppercase;
+        font-size: .8em;
+        padding-bottom: .1em;
+        font-weight: 700;
+        color: #2880b9;
+    }
+    img{
+        width: 220px;
+        @media(max-width: 700px){
+            width: 90%;
+        }
+    }
+    a{
+        color: inherit;
+        text-decoration: none;
+        vertical-align: top;
+        cursor: pointer;
+    }
+    .related-story{
+        max-width: 210px;
+        display: inline-block;
+        margin-right: 2em;
+        vertical-align: top;
+        text-align: left;
+        @media(max-width: 700px){
+            margin-right: auto;
+            margin-bottom: 2em;
+            margin-left: auto;
+            width: 90%;
+            max-width: 100%;
+        }
+    }
+    .related-story:hover{
+        opacity: 0.8;
+    }
+    h3{
+      font-size: 0.9em;
+      span{
+        font-style: italic;
+        font-weight: bold;
+      }
+      @media(max-width: 700px){
+        font-size: 1em;
+      }
+    }
+    @media(max-width: 700px){
+        text-align: center;
+    }
+}
+
+.footer-basic-centered {
+    background-color: $nav;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font: 300 18px Lato,sans-serif;
+    padding: 30px;
+    padding-bottom: 50px;
+
+    margin-top: 30px;
+    .footer-links{
+        float: right;
+    }
+    .footer-company-name{
+        float: left;
+    }
+    .footer-links,.footer-company-name{
+        vertical-align: middle;
+        padding-bottom: 20px;
+    }
+    a{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 700px){
+    .copy{
+        font-size: 1.1em;
+    }
+}
+
+@media(max-width: 680px){
+
+    .footer-basic-centered{
+        padding-bottom: 30px;
+        .footer-links,.footer-company-name{
+            float: none;
+        }
+    }
+}
+
+.scroller{
+    text-align: center;
+    padding-top: 2em;
+    path.domain{
+        display: none;
+    }
+    .axis{
+        .tick{ 
+            text{
+                font-size: 1.2em;
+            }
+            
+            line{
+                stroke: #ddd;
+            }
+        }
+    }
+
+    .points-layer{
+        .point{
+            fill: #aaa;
+        }
+        .point.withdrawal.active{
+            fill: $sec2;
+            stroke-width: 20;
+            stroke: $sec2;
+        }
+        .point.exchange.active{
+            fill: $link;
+            stroke-width: 20;
+            stroke: $link;
+        }
+        .point.old-notes.active{
+            fill: $primary;
+            stroke-width: 20;
+            stroke: $primary;
+        }
+    }
+
+    .el line{
+        stroke: #eee;
+    }
+    .counter-container{
+        background-color: rgba(0,0,0,0.8);
+        padding: 0.6em 1em 0 1em;
+        text-align: center;
+        color: #fff;
+        height: 90px;
+        z-index: 100;
+    }
+    .counter-container.fixed{
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    .counter{ 
+        margin-bottom: 0;
+        font-size: 0.9em;
+    }
+    .counter-value{
+        font-size: 3em;
+       margin:0;
+       margin-top: -5px;
+    }
+    .chart-container{
+        padding-top: 90px;
+        padding-bottom: 220px;
+
+    }
+    .chart-container.move{
+        padding-top: 180px;
+    }
+
+    .annotation-container{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        margin-top: 90px;
+    }
+
+    .chart-container{
+        position: relative;
+        z-index: 0;
+    }
+
+
+
+    .annotation{
+         margin-top: 0;
+        display: none;
+        position: absolute;
+        width: 90%;
+        max-width: 400px;
+        text-align: left;
+        left: 35%;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1em;
+        padding: 1em;
+        p{
+            margin: 0;
+        }
+    }
+
+    .annotation.show{
+        display: block;
+        margin-top: 90px;
+    }
+}
