@@ -6,7 +6,7 @@ var _ = require('underscore')
 var annotations = [
     {
         "date": new Date (2016,10,8),
-        "what": "<span class = 'exchange'>Old notes worth Rs 4000 can be exchanged at banks.</span><span class = 'withdrawal'>ATM withdrawal limit at Rs. 2,000. Withdrawal limit from banks fixed at Rs. 20,000 a week; daily limit at Rs. 10,000.</span><span class = 'old-notes'>Fuel stations, airports, railways to accept old notes.</span>"
+        "what": "<span class = 'exchange'>Old notes worth Rs 4000 can be exchanged at banks.</span> <span class = 'withdrawal'>ATM withdrawal limit at Rs. 2,000. Withdrawal limit from banks fixed at Rs. 20,000 a week; daily limit at Rs. 10,000.</span> <span class = 'old-notes'>Fuel stations, airports, railways to accept old notes.</span>"
     },
         {
         "date": new Date (2016,10,9),
@@ -106,13 +106,13 @@ var data = [
 
 var date_format = d3.timeFormat("%b %d");
 var container_width = $('.copy').width()
-var container_height = 2000
+var container_height = (container_width<600)?2000:2600
 var margin = {top: 30, bottom: 40, left: 40, right: 30}
 var time_scale = d3.scaleTime()
                     .domain(d3.extent(data, function(e){return e.date})) 
                     .range([0,(container_height-margin.top-margin.bottom)])
 var time_axis = d3.axisLeft(time_scale)
-                    .tickValues(_.chain(data).pluck('date').uniq().value())
+                    .tickValues(_.chain(annotations).pluck('date').uniq().value())
                     .tickSize(-container_width, 0, 0)
                     .tickFormat(function(d){return date_format(d)})
 var x_scale = d3.scalePoint()
@@ -224,11 +224,11 @@ $(document).ready(function() {
 
     }
 
-
     var updateCounter = function(){
-        var filterdata = _.filter(data,function(d){return time_scale(d.date)<=maxtick-parseFloat(svg_pos)})
+        var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
         $('.counter-value').text(filterdata.length)
-        $('.counter .date').text(maxdate)
+        if (filterdata.length>0){$('.counter .date').text(maxdate) } else {return $('.counter .date').text("Nov 07") }
+        
     }
 
     $(window).scroll(function() { 

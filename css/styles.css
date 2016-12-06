@@ -7,6 +7,24 @@
 a {
   color: inherit; }
 
+.lead-img {
+  width: 100%; }
+
+.copy p span {
+  padding: 0.2em;
+  line-height: 1.8em;
+  color: #fff;
+  border-radius: 3px; }
+
+span.old-notes {
+  background-color: #48a2d7; }
+
+span.withdrawal {
+  background-color: #e74c3c; }
+
+span.exchange {
+  background-color: #008080; }
+
 body {
   font-family: "PT Serif", serif;
   background-color: #fcfcfc;
@@ -62,6 +80,10 @@ body {
   font-size: 1.25em;
   line-height: 1.5em;
   color: #3a3a3a; }
+  @media (max-width: 700px) {
+    .copy {
+      padding-top: 2em;
+      line-height: 1.8em; } }
 
 .copy-container {
   padding-top: 3em; }
@@ -294,16 +316,22 @@ section h2 {
   .scroller .el line {
     stroke: #eee; }
   .scroller .counter-container {
-    background-color: #262626;
+    background-color: #fcfcfc;
     padding: 0.6em 1em 0 1em;
     text-align: center;
-    color: #fff;
+    color: #3a3a3a;
     height: 90px;
-    z-index: 100; }
+    z-index: 100;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear; }
   .scroller .counter-container.fixed {
     position: fixed;
     top: 0;
-    width: 100%; }
+    width: 100%;
+    background-color: #262626;
+    color: #fff; }
   .scroller .counter {
     margin-bottom: 0;
     font-size: 0.9em; }
@@ -339,12 +367,6 @@ section h2 {
     .scroller .annotation span {
       padding: 0.2em;
       line-height: 1.8em; }
-    .scroller .annotation span.old-notes {
-      background-color: #48a2d7; }
-    .scroller .annotation span.withdrawal {
-      background-color: #e74c3c; }
-    .scroller .annotation span.exchange {
-      background-color: #008080; }
     @media (max-width: 800px) {
       .scroller .annotation {
         left: 5%; } }

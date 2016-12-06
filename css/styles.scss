@@ -19,6 +19,26 @@ $link: #008080;
 a{
     color: inherit;
 }
+.lead-img{
+    width: 100%;
+}
+.copy p span{
+
+    padding: 0.2em;
+    line-height: 1.8em;
+    color: #fff;
+    border-radius: 3px;
+}
+
+span.old-notes{
+    background-color: $primary;
+}
+span.withdrawal{
+    background-color: $sec2;
+}
+span.exchange{
+    background-color: $link;
+}
 
 body{ 
     font-family: $font;
@@ -82,6 +102,10 @@ body{
     font-size: 1.25em;
     line-height: 1.5em;
     color: $text;
+    @media(max-width: 700px){
+        padding-top: 2em;
+        line-height: 1.8em;
+    }
 }
 
 .copy-container{
@@ -382,17 +406,24 @@ section{
         stroke: #eee;
     }
     .counter-container{
-        background-color: $nav;
+        background-color: $back;
         padding: 0.6em 1em 0 1em;
         text-align: center;
-        color: #fff;
+        color: #3a3a3a;
         height: 90px;
         z-index: 100;
+            -moz-transition: all .2s linear;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
     }
     .counter-container.fixed{
         position: fixed;
         top: 0;
         width: 100%;
+        background-color: $nav;
+        color: #fff;
+
     }
     .counter{ 
         margin-bottom: 0;
@@ -443,15 +474,7 @@ section{
             padding: 0.2em;
             line-height: 1.8em;
         }
-        span.old-notes{
-            background-color: $primary;
-        }
-        span.withdrawal{
-            background-color: $sec2;
-        }
-        span.exchange{
-            background-color: $link;
-        }
+
         @media(max-width: 800px){
             left: 5%;
         }
