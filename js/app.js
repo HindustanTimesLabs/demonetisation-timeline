@@ -34,7 +34,7 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,24),
-        "what": "</span><span class = 'exchange'> Exchange of money is stopped.</span><span class = 'old-notes'>Banned Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 15. Rs 1,000 old notes can only be deposited into accounts."
+        "what": "</span><span class = 'exchange'> Exchange of money is stopped.</span> <span class = 'old-notes'>Banned Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into accounts."
     },
     {
         "date": new Date (2016,10,28),
@@ -225,10 +225,28 @@ $(document).ready(function() {
     }
 
     var updateCounter = function(){
-        var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
-        $('.counter-value').text(filterdata.length)
-        if (filterdata.length>0){$('.counter .date').text(maxdate) } else {return $('.counter .date').text("Nov 07") }
         
+        var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
+        var date = (filterdata.length>0)?maxdate:'Nov 07'
+        if (filterdata.length>0){
+            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had been changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had been changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had been changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b> .' 
+        } else {
+            var sentence = 'No changes were made till November 7.'
+        }
+        
+        $('.counter').html(sentence)
+    }
+
+    var getTimes = function(num){
+        if (num == 1){
+            return 'once'
+        } else if (num ==2){
+            return 'twice'
+        } else if (num ==3){
+            return 'thrice'
+        } else {
+            return num + ' times'
+        }
     }
 
     $(window).scroll(function() { 
