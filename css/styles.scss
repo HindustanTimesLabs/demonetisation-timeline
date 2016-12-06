@@ -123,7 +123,6 @@ body{
         padding-bottom: 0.7em;
         @media(max-width: 600px){
             font-size: 2.1em;
-            margin-right: 20px;
         }
     }
 }
@@ -348,16 +347,34 @@ section{
             fill: $sec2;
             stroke-width: 20;
             stroke: $sec2;
+            @media(max-width: 800px){
+                stroke-width: 16
+            }
+            @media(max-width: 600px){
+                stroke-width: 12;
+            }
         }
         .point.exchange.active{
             fill: $link;
             stroke-width: 20;
             stroke: $link;
+            @media(max-width: 800px){
+                stroke-width: 16
+            }
+            @media(max-width: 600px){
+                stroke-width: 12;
+            }
         }
         .point.old-notes.active{
             fill: $primary;
             stroke-width: 20;
             stroke: $primary;
+            @media(max-width: 800px){
+                stroke-width: 16
+            }
+            @media(max-width: 600px){
+                stroke-width: 12;
+            }
         }
     }
 
@@ -365,7 +382,7 @@ section{
         stroke: #eee;
     }
     .counter-container{
-        background-color: rgba(0,0,0,0.8);
+        background-color: $nav;
         padding: 0.6em 1em 0 1em;
         text-align: center;
         color: #fff;
@@ -417,18 +434,33 @@ section{
         max-width: 400px;
         text-align: left;
         left: 35%;
-        background-color: rgba(0,0,0,0.7);
+        
         border-radius: 5px;
         color: #fff;
         font-size: 1em;
         padding: 1em;
-        p{
-            margin: 0;
+        span{
+            padding: 0.2em;
+            line-height: 1.8em;
+        }
+        span.old-notes{
+            background-color: $primary;
+        }
+        span.withdrawal{
+            background-color: $sec2;
+        }
+        span.exchange{
+            background-color: $link;
+        }
+        @media(max-width: 800px){
+            left: 5%;
         }
     }
-
+    .move .annotation.show{
+        margin-top: 90px;
+    }
     .annotation.show{
         display: block;
-        margin-top: 90px;
+        margin-top: 0px;
     }
 }

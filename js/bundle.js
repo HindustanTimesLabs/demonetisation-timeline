@@ -52,86 +52,104 @@
 	var annotations = [
 	    {
 	        "date": new Date (2016,10,8),
-	        "what": "Prime Minister Narendra Modi’s announces to ban old notes of Rs 500 and Rs 1,000. Hospitals, pharmacies, railway ticket counters, public business, co-operative milk booths, crematoriums, petrol pumps, and airline ticketing counters at airports are allowed to accept old notes for the next three days."
+	        "what": "<span class = 'exchange'>Old notes worth Rs 4000 can be exchanged at banks.</span><span class = 'withdrawal'>ATM withdrawal limit at Rs. 2,000. Withdrawal limit from banks fixed at Rs. 20,000 a week; daily limit at Rs. 10,000.</span><span class = 'old-notes'>Fuel stations, airports, railways to accept old notes.</span>"
 	    },
-	    {
+	        {
 	        "date": new Date (2016,10,9),
-	        "what": "Banks and government treasuries shut to arrange new currencies"
+	        "what": "<span class = 'old-notes'>Metro stations, ASI monuments, toll plazas and medicine shops to also accept old notes.</span>"
 	    },
 	    {
 	        "date": new Date (2016,10,10),
-	        "what": "Old notes can be used to pay educational fees; they can also be used to clear any charges, taxes, and penalties due to government, municipal, and local bodies, and for utilities such as water and electricity."
+	        "what": "<span class = 'old-notes'>Old notes can be used to pay educational fees, clear any charges, taxes, and penalties due to government, municipal, and local bodies, and other utilities.</span>"
 	    },
 	    {
 	        "date": new Date (2016,10,13),
-	        "what": "Currency exchange limit raised from Rs 4000 to Rs 4,500 and ATM withdrawal to Rs 2,500 from Rs 2000"
+	        "what": "<span class = 'exchange'>Currency exchange limit raised from Rs 4,000 to Rs 4,500.</span> <span class = 'withdrawal'>ATM withdrawal limit increased to Rs 2,500.</span>"
 	    },
 	    {
 	        "date": new Date (2016,10,15),
-	        "what": "Instructions to banks to use indelible ink marks on those exchanging money to stop same set of people entering bank again and again."
+	        "what": "<span class = 'exchange'>Banks instructed to use indelible ink marks on people exchanging money.</span>"
 	    },
 	        {
 	        "date": new Date (2016,10,17),
-	        "what": "Currency exchange limit lowered to Rs 2,000 after reports of people getting black money exchanged by hiring workers."
+	        "what": "<span class = 'exchange'>Exchange limit lowered to Rs 2,000 after reports of people getting black money exchanged by hiring workers.</span>"
+	    },
+	            {
+	        "date": new Date (2016,10,21),
+	        "what": "<span class = 'old-notes'>Farmers allowed to buy seeds with old currency.</span>"
 	    },
 	    {
 	        "date": new Date (2016,10,24),
-	        "what": "Government changes rules for using banned Rs 500 notes with last date for use at petrol pumps and for buying airline tickets set as December 15. Rs 1,000 old notes can only be deposited into accounts."
+	        "what": "</span><span class = 'exchange'> Exchange of money is stopped.</span><span class = 'old-notes'>Banned Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 15. Rs 1,000 old notes can only be deposited into accounts."
+	    },
+	    {
+	        "date": new Date (2016,10,28),
+	        "what": "<span class = 'withdrawal'>RBI waives withdrawal limits, but only for new notes you deposit in your account. Withdrawal limits for other customers remains capped at Rs 24,000 per week.</span>"
+	    },
+	    {
+	        "date": new Date (2016,11,1),
+	        "what": "<span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 2 instead of December 15.</span>"
 	    }
 	]
-	
 	var data = [
 	  {
 	    "type": "exchange",
-	    "date": new Date (2016,10,8),
-	    "what": "Govt announces old notes worth Rs 4,000 can be exchanged at banks."
+	    "date": new Date (2016,10,8)
 	  },
-	  {
-	    "type": "exchange",
-	    "date": new Date (2016,10,13),
-	    "what": "Cash exchange limit over the counter increased to Rs. 4,500."
-	  },
-	  {
-	    "type": "exchange",
-	    "date": new Date (2016,10,17),
-	    "what": "Limit reduced to Rs. 2,000."
-	  },
-	  {
-	    "type": "exchange",
-	    "date": new Date (2016,10,24),
-	    "what": "Exchange of old note stopped at banks. Only foreigners allowed exchnage of up to Rs. 5,000 per week."
-	  },
-	  {
+	    {
 	    "type": "withdrawal",
-	    "date": new Date (2016,10,8),
-	    "what": "Govt limits ATM withdrawals at Rs.2,000. Banks fixed at Rs. 20,000 for a week. Daily limit at Rs. 10,000."
+	    "date": new Date (2016,10,8)
+	  },
+	    {
+	    "type": "old-notes",
+	    "date": new Date (2016,10,8)
 	  },
 	  {
+	    "type": "old-notes",
+	    "date": new Date (2016,10,9)
+	  },
+	    {
+	    "type": "old-notes",
+	    "date": new Date (2016,10,10)
+	  },
+	    {
 	    "type": "withdrawal",
-	    "date": new Date (2016,10,13),
-	    "what": "Cash withdrawal Rs. 2,5000 at ATMs. Weekly limit Rs. 24,000. Daily limit removed."
+	    "date": new Date (2016,10,13)
+	  },
+	  {
+	    "type": "exchange",
+	    "date": new Date (2016,10,13)
+	  },
+	    {
+	    "type": "exchange",
+	    "date": new Date (2016,10,15)
+	  },
+	  {
+	    "type": "exchange",
+	    "date": new Date (2016,10,17)
+	  },
+	    {
+	    "type": "old-notes",
+	    "date": new Date (2016,10,21)
+	  },
+	  {
+	    "type": "exchange",
+	    "date": new Date (2016,10,24)
 	  },
 	  {
 	    "type": "old-notes",
-	    "date": new Date (2016,10,8),
-	    "what": "Fuel stations, govt hospitals, airports, railways."
+	    "date": new Date (2016,10,24)
 	  },
-	  {
-	    "type": "old-notes",
-	    "date": new Date (2016,10,9),
-	    "what": "Metro stations, ASI monuments, toll plazas and medicine shops."
+	    {
+	    "type": "withdrawal",
+	    "date": new Date (2016,10,28)
 	  },
-	  {
+	    {
 	    "type": "old-notes",
-	    "date": new Date (2016,10,10),
-	    "what": "Fees, charges, taxes and penalties payable to municipal bodies, and other utility charges."
-	  },
-	  {
-	    "type": "old-notes",
-	    "date": new Date (2016,10,24),
-	    "what": "Only Rs. 500 notes to be used for paying utility bills, mobile recharge, fees for govt school and colleges."
+	    "date": new Date (2016,11,1)
 	  }
 	]
+	
 	var date_format = d3.timeFormat("%b %d");
 	var container_width = $('.copy').width()
 	var container_height = 2000
@@ -190,8 +208,7 @@
 	    .append('div')
 	    .attr('class','annotation')
 	    .style('top',function(d){return (time_scale(d.date)+50)+'px'})
-	    .append('p')
-	    .text(function(d){return d.what})
+	    .html(function(d){return d.what})
 	
 	
 	var buffer = 200;

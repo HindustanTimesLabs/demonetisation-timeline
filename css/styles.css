@@ -97,8 +97,7 @@ body {
     padding-bottom: 0.7em; }
     @media (max-width: 600px) {
       .story .headline {
-        font-size: 2.1em;
-        margin-right: 20px; } }
+        font-size: 2.1em; } }
 
 .blockquote {
   font-weight: 700;
@@ -266,18 +265,36 @@ section h2 {
     fill: #e74c3c;
     stroke-width: 20;
     stroke: #e74c3c; }
+    @media (max-width: 800px) {
+      .scroller .points-layer .point.withdrawal.active {
+        stroke-width: 16; } }
+    @media (max-width: 600px) {
+      .scroller .points-layer .point.withdrawal.active {
+        stroke-width: 12; } }
   .scroller .points-layer .point.exchange.active {
     fill: #008080;
     stroke-width: 20;
     stroke: #008080; }
+    @media (max-width: 800px) {
+      .scroller .points-layer .point.exchange.active {
+        stroke-width: 16; } }
+    @media (max-width: 600px) {
+      .scroller .points-layer .point.exchange.active {
+        stroke-width: 12; } }
   .scroller .points-layer .point.old-notes.active {
     fill: #48a2d7;
     stroke-width: 20;
     stroke: #48a2d7; }
+    @media (max-width: 800px) {
+      .scroller .points-layer .point.old-notes.active {
+        stroke-width: 16; } }
+    @media (max-width: 600px) {
+      .scroller .points-layer .point.old-notes.active {
+        stroke-width: 12; } }
   .scroller .el line {
     stroke: #eee; }
   .scroller .counter-container {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #262626;
     padding: 0.6em 1em 0 1em;
     text-align: center;
     color: #fff;
@@ -315,15 +332,26 @@ section h2 {
     max-width: 400px;
     text-align: left;
     left: 35%;
-    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     color: #fff;
     font-size: 1em;
     padding: 1em; }
-    .scroller .annotation p {
-      margin: 0; }
+    .scroller .annotation span {
+      padding: 0.2em;
+      line-height: 1.8em; }
+    .scroller .annotation span.old-notes {
+      background-color: #48a2d7; }
+    .scroller .annotation span.withdrawal {
+      background-color: #e74c3c; }
+    .scroller .annotation span.exchange {
+      background-color: #008080; }
+    @media (max-width: 800px) {
+      .scroller .annotation {
+        left: 5%; } }
+  .scroller .move .annotation.show {
+    margin-top: 90px; }
   .scroller .annotation.show {
     display: block;
-    margin-top: 90px; }
+    margin-top: 0px; }
 
 /*# sourceMappingURL=styles.css.map*/
