@@ -22,8 +22,25 @@ a{
 .lead-img{
     width: 100%;
 }
-.copy p span{
 
+.hide-desktop{
+    display: none;
+    @media(max-width: 700px){
+        display: block;
+    }
+}
+
+.hide-mobile{
+    display: block;
+    @media(max-width: 700px){
+        display: none;
+    }
+}
+
+.axis text{
+    font-family: $block;
+}
+.copy span.withdrawal, .copy span.old-notes, .copy span.exchange{
     padding: 0.2em;
     line-height: 1.8em;
     color: #fff;
@@ -137,13 +154,24 @@ body{
     padding-top: 40px;
     .headline-container{
         text-align: center;
+        @media(max-width: 700px){
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media(max-width: 500px){
+            font-size: 0.9em;
+        }
+        @media(max-width: 400px){
+            font-size: 0.8em;
+        }
     }
     .headline{
         padding-top: 0.7em;
         font-size: 2.8em;
         margin-left: auto;
         margin-right: auto;
-        max-width: 650px;
+        max-width: 800px;
         padding-bottom: 0.7em;
         @media(max-width: 600px){
             font-size: 2.1em;
@@ -245,12 +273,11 @@ section{
 .related-stories.copy{
 
     padding-top: 30px;
-    max-width: 1300px;
+    max-width: 1000px;
     border-top: 1px solid #ddd;
     h2{
     border-bottom: none;
     font-size: 1.4em;
-
     }
     .series {
         text-transform: uppercase;
@@ -308,7 +335,7 @@ section{
     color: #fff;
     width: 100%;
     text-align: center;
-    font: 300 18px Lato,sans-serif;
+    font: 300 20px;
     padding: 30px;
     padding-bottom: 50px;
 
@@ -367,6 +394,12 @@ section{
         .point{
             fill: #aaa;
         }
+        .point{
+                        -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+        }
         .point.withdrawal.active{
             fill: $sec2;
             stroke-width: 20;
@@ -412,7 +445,7 @@ section{
         color: #3a3a3a;
         height: 90px;
         z-index: 100;
-            -moz-transition: all .2s linear;
+            -moz-transition: all .4s linear;
     -webkit-transition: all .4s linear;
     -o-transition: all .4s linear;
     transition: all .4s linear;
@@ -432,16 +465,20 @@ section{
         font-size: 1.2em;
         max-width: 800px;
         margin-left: auto;
+        line-height: 1.6em;
         margin-right: auto;
 span{
     padding: 0.1em;
     border-radius: 4px;
 }
+
         @media(max-width: 800px){
         font-size: 1em;
+        line-height: 1.5em;
         }
         @media(max-width: 500px){
         font-size: 0.9em;
+        line-height: 1.4em;
         }
     }
 

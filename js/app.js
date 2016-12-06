@@ -6,19 +6,19 @@ var _ = require('underscore')
 var annotations = [
     {
         "date": new Date (2016,10,8),
-        "what": "<span class = 'exchange'>Old notes worth Rs 4000 can be exchanged at banks.</span> <span class = 'withdrawal'>ATM withdrawal limit at Rs. 2,000. Withdrawal limit from banks fixed at Rs. 20,000 a week; daily limit at Rs. 10,000.</span> <span class = 'old-notes'>Fuel stations, airports, railways to accept old notes.</span>"
+        "what": "<span class = 'exchange'>Old notes worth Rs 4000 can be exchanged at banks.</span> <span class = 'withdrawal'>Withdrawal limit for ATMs is at Rs 2,000. The limit for bank withdrawals is at Rs 20,000 a week with a daily cap of Rs 10,000.</span> <span class = 'old-notes'>Fuel stations, airports, railways to accept old notes. Old notes can be deposited in banks till December 31st.</span>"
     },
         {
         "date": new Date (2016,10,9),
-        "what": "<span class = 'old-notes'>Metro stations, ASI monuments, toll plazas and medicine shops to also accept old notes.</span>"
+        "what": "<span class = 'old-notes'>Metro stations, ASI monuments, toll plazas and medicine shops are also ordered to accept old notes.</span>"
     },
     {
         "date": new Date (2016,10,10),
-        "what": "<span class = 'old-notes'>Old notes can be used to pay educational fees, clear any charges, taxes, and penalties due to government, municipal, and local bodies, and other utilities.</span>"
+        "what": "<span class = 'old-notes'>Old notes can be used to pay educational fees, clear any charges, taxes, and penalties due to government, municipal, and local bodies, and those for utilities like electricity and water.</span>"
     },
     {
         "date": new Date (2016,10,13),
-        "what": "<span class = 'exchange'>Currency exchange limit raised from Rs 4,000 to Rs 4,500.</span> <span class = 'withdrawal'>ATM withdrawal limit increased to Rs 2,500.</span>"
+        "what": "<span class = 'exchange'>Currency exchange limit raised from &#8377;4,000 to Rs 4,500.</span> <span class = 'withdrawal'>ATM withdrawal limit increased to Rs 2,500.</span>"
     },
     {
         "date": new Date (2016,10,15),
@@ -26,19 +26,19 @@ var annotations = [
     },
         {
         "date": new Date (2016,10,17),
-        "what": "<span class = 'exchange'>Exchange limit lowered to Rs 2,000 after reports of people getting black money exchanged by hiring workers.</span>"
+        "what": "<span class = 'exchange'>Exchange limit lowered to Rs 2,000 after reports of people getting black money exchanged by hiring workers.</span> <span class='withdrawal'>Farmers are allowed to withdraw Rs 25,000 per week and farm traders are allowed Rs 50,000. In case of a wedding, families can encash Rs 2,50,000 from their accounts.</span>"
     },
-            {
+    {
         "date": new Date (2016,10,21),
-        "what": "<span class = 'old-notes'>Farmers allowed to buy seeds with old currency.</span>"
+        "what": "<span class = 'old-notes'>Farmers are allowed to buy seeds with old currency.</span>"
     },
     {
         "date": new Date (2016,10,24),
-        "what": "</span><span class = 'exchange'> Exchange of money is stopped.</span> <span class = 'old-notes'>Banned Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into accounts."
+        "what": "</span><span class = 'exchange'> Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into accounts."
     },
     {
         "date": new Date (2016,10,28),
-        "what": "<span class = 'withdrawal'>RBI waives withdrawal limits, but only for new notes you deposit in your account. Withdrawal limits for other customers remains capped at Rs 24,000 per week.</span>"
+        "what": "<span class = 'withdrawal'>RBI waives withdrawal limits, but only for the new notes you deposit in your account. Regular withdrawal limit remains capped at Rs 24,000 per week.</span>"
     },
     {
         "date": new Date (2016,11,1),
@@ -82,6 +82,10 @@ var data = [
     "type": "exchange",
     "date": new Date (2016,10,17)
   },
+{
+    "type": "withdrawal",
+    "date": new Date (2016,10,17)
+  },
     {
     "type": "old-notes",
     "date": new Date (2016,10,21)
@@ -104,7 +108,7 @@ var data = [
   }
 ]
 
-var date_format = d3.timeFormat("%b %d");
+var date_format = d3.timeFormat("%b %e");
 var container_width = $('.copy').width()
 var container_height = (container_width<600)?2000:2600
 var margin = {top: 30, bottom: 40, left: 40, right: 30}
@@ -115,6 +119,7 @@ var time_axis = d3.axisLeft(time_scale)
                     .tickValues(_.chain(annotations).pluck('date').uniq().value())
                     .tickSize(-container_width, 0, 0)
                     .tickFormat(function(d){return date_format(d)})
+
 var x_scale = d3.scalePoint()
                 .domain(["0","exchange","withdrawal","old-notes","1"])
                 .range([0,(container_width-margin.left-margin.right)])
@@ -130,6 +135,9 @@ var svg = d3.select('.chart-container')
 svg.append('g')
     .call(time_axis)
     .attr('class','axis')
+
+d3.selectAll('.axis .tick text')
+    .attr('x','3')
 
 svg.append('g')
     .attr('class','el')
@@ -165,7 +173,7 @@ d3.select('.chart-container')
     .html(function(d){return d.what})
 
 
-var buffer = 200;
+var buffer = 170;
 var svg_pos = $('svg').offset().top;
 console.log(svg_pos)
 $(document).ready(function() {  
@@ -229,9 +237,9 @@ $(document).ready(function() {
         var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
         var date = (filterdata.length>0)?maxdate:'Nov 07'
         if (filterdata.length>0){
-            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had been changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had been changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had been changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b> .' 
+            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had been changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had been changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had been changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b>.' 
         } else {
-            var sentence = 'No changes were made till November 7.'
+            var sentence = 'On November 8, 2016, all your old currency was valid. <br>Little could you imagine the changes that were in store.'
         }
         
         $('.counter').html(sentence)
