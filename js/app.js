@@ -18,7 +18,7 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,13),
-        "what": "<span class = 'exchange'>Currency exchange limit raised from &#8377;4,000 to Rs 4,500.</span> <span class = 'withdrawal'>ATM withdrawal limit increased to Rs 2,500.</span>"
+        "what": "<span class = 'exchange'>Currency exchange limit raised from Rs 4,000 to Rs 4,500.</span> <span class = 'withdrawal'>ATM withdrawal limit increased to Rs 2,500.</span>"
     },
     {
         "date": new Date (2016,10,15),
@@ -173,9 +173,9 @@ d3.select('.chart-container')
     .html(function(d){return d.what})
 
 
-var buffer = 170;
+var buffer = 0.42*$(window).height();
 var svg_pos = $('svg').offset().top;
-console.log(svg_pos)
+
 $(document).ready(function() {  
     var stickyNavTop = $('.counter-container').offset().top;  
     var stickyNav = function(){  
