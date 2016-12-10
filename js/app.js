@@ -43,6 +43,10 @@ var annotations = [
     {
         "date": new Date (2016,11,1),
         "what": "<span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and for buying airline tickets till December 2 instead of December 15.</span>"
+    },
+    {
+        "date": new Date (2016,11,8),
+        "what": "<span class = 'old-notes'>Rail, metro, bus tickets can be purchased with old Rs 500 notes only till December 10.</span>"
     }
 ]
 var data = [
@@ -105,6 +109,10 @@ var data = [
     {
     "type": "old-notes",
     "date": new Date (2016,11,1)
+  },
+  {
+    "type": "old-notes",
+    "date": new Date (2016,11,8)
   }
 ]
 
