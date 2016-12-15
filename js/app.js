@@ -3,6 +3,7 @@ var d3 = require('d3')
 var $ = require('jquery')
 var _ = require('underscore')
 
+// array of dates and annotations.
 var annotations = [
     {
         "date": new Date (2016,10,8),
@@ -49,6 +50,7 @@ var annotations = [
         "what": "<span class = 'old-notes'>Rail, metro, bus tickets can be purchased with old Rs 500 notes only till December 10.</span>"
     }
 ]
+// array of all points
 var data = [
   {
     "type": "exchange",
@@ -116,10 +118,13 @@ var data = [
   }
 ]
 
+// formatters and global variables
+
 var date_format = d3.timeFormat("%b %e");
 var container_width = $('.copy').width()
 var container_height = (container_width<600)?2000:2600
 var margin = {top: 30, bottom: 40, left: 40, right: 30}
+// d3 scale and axis
 var time_scale = d3.scaleTime()
                     .domain(d3.extent(data, function(e){return e.date})) 
                     .range([0,(container_height-margin.top-margin.bottom)])
@@ -127,11 +132,11 @@ var time_axis = d3.axisLeft(time_scale)
                     .tickValues(_.chain(annotations).pluck('date').uniq().value())
                     .tickSize(-container_width, 0, 0)
                     .tickFormat(function(d){return date_format(d)})
-
 var x_scale = d3.scalePoint()
                 .domain(["0","exchange","withdrawal","old-notes","1"])
                 .range([0,(container_width-margin.left-margin.right)])
 
+// declare that svg!
 var svg = d3.select('.chart-container')
     .append('svg')
     .attr('class','scroller-container')
@@ -147,6 +152,7 @@ svg.append('g')
 d3.selectAll('.axis .tick text')
     .attr('x','3')
 
+// one line for every category
 svg.append('g')
     .attr('class','el')
     .selectAll('line')
@@ -158,6 +164,7 @@ svg.append('g')
     .attr("x2", function(e){return x_scale(e)})     // x position of the second end of the line
     .attr("y2", (container_height-margin.top-margin.bottom));    // y position of the second end of the line
 
+// points for all events
 svg.append('g')
     .attr('class','points-layer')
     .selectAll('.point')
@@ -169,6 +176,7 @@ svg.append('g')
     .attr('cy',function(d){return time_scale(d.date)})
     .attr('r',5)
 
+// annotations go here
 d3.select('.chart-container')
     .append('div')
     .attr('class','annotation-container')
@@ -180,10 +188,11 @@ d3.select('.chart-container')
     .style('top',function(d){return (time_scale(d.date)+50)+'px'})
     .html(function(d){return d.what})
 
-
+// change the percentage in buffer to change when a annotation pops up.
 var buffer = 0.42*$(window).height();
 var svg_pos = $('svg').offset().top;
 
+// scroll magic goes here
 $(document).ready(function() {  
     var stickyNavTop = $('.counter-container').offset().top;  
     var stickyNav = function(){  
@@ -201,6 +210,8 @@ $(document).ready(function() {
     
     var maxtick = 0
     var maxdate
+
+    // functions
     var tickDetector = function(){
         var scrollTop = $(window).scrollTop();
         $('.tick').each(function(i) {
