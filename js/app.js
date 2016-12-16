@@ -35,11 +35,15 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,24),
-        "what": "</span><span class = 'exchange'> Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into accounts."
+        "what": "</span><span class = 'exchange'> Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into bank accounts."
     },
     {
         "date": new Date (2016,10,28),
         "what": "<span class = 'withdrawal'>RBI waives withdrawal limits, but only for the new notes you deposit in your account. Regular withdrawal limit remains capped at Rs 24,000 per week.</span>"
+    },
+    {
+        "date": new Date (2016,10,30),
+        "what": "<span class = 'withdrawal'>Withdrawals from Jan Dhan accounts limited to Rs 10,000 per month</span>"
     },
     {
         "date": new Date (2016,11,1),
@@ -48,6 +52,10 @@ var annotations = [
     {
         "date": new Date (2016,11,8),
         "what": "<span class = 'old-notes'>Rail, metro, bus tickets can be purchased with old Rs 500 notes only till December 10.</span>"
+    },
+    {
+        "date": new Date (2016,11,15),
+        "what": "<span class = 'withdrawal'>Accounts with deposits more than Rs 2 lakh since demonetisation and a total balance greater than Rs 5 lakh are not permitted withdrawals/transfer of funds without quoting of PAN or submission of Form 60 (persons who do not have PAN).</span>"
     }
 ]
 // array of all points
@@ -108,6 +116,10 @@ var data = [
     "type": "withdrawal",
     "date": new Date (2016,10,28)
   },
+  {
+    "type": "withdrawal",
+    "date": new Date (2016,10,30)
+  },
     {
     "type": "old-notes",
     "date": new Date (2016,11,1)
@@ -115,6 +127,10 @@ var data = [
   {
     "type": "old-notes",
     "date": new Date (2016,11,8)
+  },
+  {
+    "type": "withdrawal",
+    "date": new Date (2016,11,15)
   }
 ]
 
@@ -189,7 +205,7 @@ d3.select('.chart-container')
     .html(function(d){return d.what})
 
 // change the percentage in buffer to change when a annotation pops up.
-var buffer = 0.42*$(window).height();
+var buffer = 0.22*$(window).height();
 var svg_pos = $('svg').offset().top;
 
 // scroll magic goes here
