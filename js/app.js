@@ -43,7 +43,7 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,30),
-        "what": "<span class = 'withdrawal'>Withdrawals from Jan Dhan accounts limited to Rs 10,000 per month</span>"
+        "what": "<span class = 'withdrawal'>Withdrawals from Jan Dhan accounts limited to Rs 10,000 per month.</span>"
     },
     {
         "date": new Date (2016,11,1),
