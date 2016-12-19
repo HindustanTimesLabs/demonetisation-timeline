@@ -35,7 +35,7 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,24),
-        "what": "</span><span class = 'exchange'> Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into bank accounts."
+        "what": "</span><span class = 'exchange'>Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into bank accounts."
     },
     {
         "date": new Date (2016,10,28),
@@ -56,6 +56,10 @@ var annotations = [
     {
         "date": new Date (2016,11,15),
         "what": "<span class = 'withdrawal'>Accounts with deposits more than Rs 2 lakh since demonetisation and a total balance greater than Rs 5 lakh are not permitted withdrawals/transfer of funds without quoting of PAN or submission of Form 60 (persons who do not have PAN).</span>"
+    },
+    {
+        "date": new Date (2016,11,19),
+        "what": "<span class = 'old-notes'>Deposits of above Rs 5,000 in banned banknotes can be made only once till December 30. If the account does not have customer information details called KYC, deposits can be restricted to Rs 50,000.</span>"
     }
 ]
 // array of all points
@@ -131,6 +135,10 @@ var data = [
   {
     "type": "withdrawal",
     "date": new Date (2016,11,15)
+  },
+  {
+    "type": "old-notes",
+    "date": new Date (2016,11,19)
   }
 ]
 
@@ -272,7 +280,7 @@ $(document).ready(function() {
         var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
         var date = (filterdata.length>0)?maxdate:'Nov 07'
         if (filterdata.length>0){
-            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had been changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had been changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had been changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b>.' 
+            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b>.' 
         } else {
             var sentence = 'On November 8, 2016, all your old currency was valid. <br>Little could you imagine the changes that were in store.'
         }
