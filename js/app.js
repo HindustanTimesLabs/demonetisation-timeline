@@ -23,7 +23,7 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,15),
-        "what": "<span class = 'exchange'>Banks instructed to use indelible ink marks on people exchanging money.</span>"
+        "what": "<span class = 'exchange'>Banks to use indelible ink marks on people exchanging money.</span>"
     },
         {
         "date": new Date (2016,10,17),
@@ -60,6 +60,10 @@ var annotations = [
     {
         "date": new Date (2016,11,19),
         "what": "<span class = 'old-notes'>Deposits of above Rs 5,000 in banned banknotes can be made only once till December 30. If the account does not have customer information details called KYC, deposits can be restricted to Rs 50,000.</span>"
+    },
+    {
+        "date": new Date (2016,11,21),
+        "what": "<span class = 'old-notes'>RBI withdraws restriction announced in previous notification. Deposits above Rs 5,000 in banned banknotes allowed multiple times till December 30. The one condition - accounts should be KYC compliant.</span>"
     }
 ]
 // array of all points
@@ -139,6 +143,10 @@ var data = [
   {
     "type": "old-notes",
     "date": new Date (2016,11,19)
+  },
+  {
+    "type": "old-notes",
+    "date": new Date (2016,11,21)
   }
 ]
 
