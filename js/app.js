@@ -35,7 +35,11 @@ var annotations = [
     },
     {
         "date": new Date (2016,10,24),
-        "what": "</span><span class = 'exchange'>Exchange of currency is stopped.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into bank accounts."
+        "what": "</span><span class = 'exchange'>Exchange of currency is stopped at bank counters.</span> <span class = 'old-notes'>Old Rs 500 notes can be used at petrol pumps and at the airport for buying airline tickets till December 15. Old Rs 1,000 notes can only be deposited into bank accounts."
+    },
+    {
+        "date": new Date (2016,10,25),
+        "what": "</span><span class = 'exchange'>Exchange of old bank notes that was stopped at banks, will be allowed at Reserve Bank of India (RBI) counters.</span>"
     },
     {
         "date": new Date (2016,10,28),
@@ -64,6 +68,10 @@ var annotations = [
     {
         "date": new Date (2016,11,21),
         "what": "<span class = 'old-notes'>RBI withdraws restriction announced in previous notification. Deposits above Rs 5,000 in banned banknotes allowed multiple times till December 30. The one condition - accounts should be KYC compliant.</span>"
+    },
+    {
+        "date": new Date (2016,11,28),
+        "what": "<span class ='exchange'>Cabinet clears an ordinance allowing exchange of limited amounts of banknotes at offices of the RBI until March 31.</span><span class = 'old-notes'>It makes holding a large number of old Rs 1,000 and Rs 500 notes a criminal offence. The act will attract a jail term and a penalty that is five times the old currency one is caught with.</span>"
     }
 ]
 // array of all points
@@ -120,6 +128,10 @@ var data = [
     "type": "old-notes",
     "date": new Date (2016,10,24)
   },
+  {
+    "type": "exchange",
+    "date": new Date (2016,10,25)
+  },
     {
     "type": "withdrawal",
     "date": new Date (2016,10,28)
@@ -147,6 +159,14 @@ var data = [
   {
     "type": "old-notes",
     "date": new Date (2016,11,21)
+  },
+  {
+    "type": "old-notes",
+    "date": new Date (2016,11,28)
+  },
+  {
+    "type": "exchange",
+    "date": new Date (2016,11,28)
   }
 ]
 
@@ -288,7 +308,7 @@ $(document).ready(function() {
         var filterdata = _.filter(data,function(d){return Math.round(time_scale(d.date))<=Math.round(maxtick-parseFloat(svg_pos))})
         var date = (filterdata.length>0)?maxdate:'Nov 07'
         if (filterdata.length>0){
-            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and options for the <span class = "old-notes">usage of old notes</span> had changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b>.' 
+            var sentence = 'By <b>'+date+'</b>, rules for <span class = "exchange">cash exchange</span> had changed <b>' + getTimes(_.where(filterdata,{type: 'exchange'}).length) + '</b>, <span class = "withdrawal">withdrawal limits</span> had changed <b>'+ getTimes(_.where(filterdata,{type: 'withdrawal'}).length) +'</b>, and rules for the <span class = "old-notes">usage of old notes</span> had changed <b>'+getTimes(_.where(filterdata,{type: 'old-notes'}).length)+'</b>.' 
         } else {
             var sentence = 'On November 8, 2016, all your old currency was valid. <br>Little could you imagine the changes that were in store.'
         }
