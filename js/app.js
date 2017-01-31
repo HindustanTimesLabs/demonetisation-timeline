@@ -72,6 +72,14 @@ var annotations = [
     {
         "date": new Date (2016,11,28),
         "what": "<span class ='exchange'>Cabinet clears an ordinance allowing exchange of limited amounts of banknotes at offices of the RBI until March 31.</span><span class = 'old-notes'>It makes holding a large number of old Rs 1,000 and Rs 500 notes a criminal offence. The act will attract a jail term and a penalty that is five times the old currency one is caught with.</span>"
+    },
+    {
+        "date": new Date (2016,11,30),
+        "what": "<span class ='withdrawal'>Limit for daily cash withdrawals from ATMS is increased to Rs 4,500 starting January 1, 2017.</span>"
+    },
+    {
+        "date": new Date (2017,0,30),
+        "what": "<span class ='withdrawal'>Limit on cash withdrawals is removed for current accounts. Limits on withdrawals from ATMs to be removed from February 1.</span>"
     }
 ]
 // array of all points
@@ -167,6 +175,14 @@ var data = [
   {
     "type": "exchange",
     "date": new Date (2016,11,28)
+  },
+  {
+    "type": "withdrawal",
+    "date": new Date (2016,11,30)
+  },
+  {
+    "type": "withdrawal",
+    "date": new Date (2017,0,30)
   }
 ]
 
@@ -174,7 +190,7 @@ var data = [
 
 var date_format = d3.timeFormat("%b %e");
 var container_width = $('.copy').width()
-var container_height = (container_width<600)?2000:2600
+var container_height = (container_width<600)?2500:3000
 var margin = {top: 30, bottom: 40, left: 40, right: 30}
 // d3 scale and axis
 var time_scale = d3.scaleTime()
