@@ -80,6 +80,10 @@ var annotations = [
     {
         "date": new Date (2017,0,30),
         "what": "<span class ='withdrawal'>Limit on cash withdrawals is removed for current accounts. Limits on withdrawals from ATMs to be removed from February 1.</span>"
+    },
+    {
+        "date": new Date (2017,1,8),
+        "what": "<span class ='withdrawal'>Cash withdrawal limit from savings bank accounts to be relaxed to Rs 50,000 from February 20. All withdrawal limits to be removed from March 13.</span>"
     }
 ]
 // array of all points
@@ -183,6 +187,10 @@ var data = [
   {
     "type": "withdrawal",
     "date": new Date (2017,0,30)
+  },
+  {
+    "type": "withdrawal",
+    "date": new Date (2017,1,8)
   }
 ]
 
